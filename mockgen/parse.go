@@ -449,8 +449,9 @@ func importsOfFile(file *ast.File) map[string]string {
 				// If the last path component has dots, the first dot-delimited
 				// field is used as the name.
 				pkgName = strings.SplitN(last, ".", 2)[0]
+			} else {
+				pkgName = pkg.Name
 			}
-			pkgName = pkg.Name
 		}
 
 		if _, ok := m[pkgName]; ok {
